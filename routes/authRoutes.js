@@ -13,13 +13,11 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+
+
 router.post('/register', async (req, res) => {
     try {
         const { name, email, password, confirmPassword, age, skinType, allergies } = req.body;
-
-        if (password !== confirmPassword) {
-            return res.status(400).send("Passwords do not match.");
-        }
 
         const hashedPassword = await bcrypt.hash(password, 10);
 

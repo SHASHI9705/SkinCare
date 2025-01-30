@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skin Disease Prevention Guide</title>
+    <link rel="stylesheet" href="precaution.css">
+</head>
+<body>
+    <div class="precaution-container">
+        <h1 class="page-title">Skin Disease Prevention Guide</h1>
+        
+        <div class="disease-grid">
+            <div class="disease-card">
+                <div class="card-front">
+                    <img src="/content/acne.jpeg" alt="Acne" class="disease-image">
+                    <h2 class="disease-title">Acne</h2>
+                </div>
+                <div class="card-back">
+                    <h3>Prevention Tips</h3>
+                    <ul class="prevention-list">
+                        <li>Clean skin twice daily</li>
+                        <li>Use non-comedogenic products</li>
+                        <li>Avoid touching face</li>
+                        <li>Maintain proper hydration</li>
+                    </ul>
+                </div>
+            </div>
+
+            
+            <div class="disease-card">
+                <div class="card-front">
+                    <img src="/content/eczema.jpeg" alt="Eczema" class="disease-image">
+                    <h2 class="disease-title">Eczema</h2>
+                </div>
+                <div class="card-back">
+                    <h3>Prevention Tips</h3>
+                    <ul class="prevention-list">
+                        <li>Moisturize regularly</li>
+                        <li>Avoid harsh soaps</li>
+                        <li>Use cotton clothing</li>
+                        <li>Manage stress levels</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="disease-card">
+    <div class="card-front">
+        <img src="/content/rosacea.jpg" alt="Rosacea" class="disease-image">
+        <h2 class="disease-title">Rosacea</h2>
+    </div>
+    <div class="card-back">
+        <h3>Prevention Tips</h3>
+        <ul class="prevention-list">
+            <li>Use gentle skincare products</li>
+            <li>Avoid spicy foods and alcohol</li>
+            <li>Protect from sun exposure</li>
+            <li>Manage stress levels</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Melanoma Card -->
+<div class="disease-card">
+    <div class="card-front">
+        <img src="/content/melanoma.jpeg" alt="Melanoma" class="disease-image">
+        <h2 class="disease-title">Melanoma</h2>
+    </div>
+    <div class="card-back">
+        <h3>Prevention Tips</h3>
+        <ul class="prevention-list">
+            <li>Use SPF 30+ sunscreen daily</li>
+            <li>Avoid tanning beds</li>
+            <li>Regular skin checks</li>
+            <li>Wear protective clothing</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Ringworm Card -->
+<div class="disease-card">
+    <div class="card-front">
+        <img src="/content/ringworm.jpg" alt="Ringworm" class="disease-image">
+        <h2 class="disease-title">Ringworm</h2>
+    </div>
+    <div class="card-back">
+        <h3>Prevention Tips</h3>
+        <ul class="prevention-list">
+            <li>Keep skin dry and clean</li>
+            <li>Avoid sharing personal items</li>
+            <li>Wear breathable fabrics</li>
+            <li>Disinfect surfaces regularly</li>
+        </ul>
+    </div>
+</div>
+
+            <!-- Psoriasis Card -->
+            <div class="disease-card">
+                <div class="card-front">
+                    <img src="/content/psoriasis.jpg" alt="Psoriasis" class="disease-image">
+                    <h2 class="disease-title">Psoriasis</h2>
+                </div>
+                <div class="card-back">
+                    <h3>Prevention Tips</h3>
+                    <ul class="prevention-list">
+                        <li>Avoid alcohol and smoking</li>
+                        <li>Use medicated shampoos</li>
+                        <li>Get sunlight exposure</li>
+                        <li>Maintain healthy weight</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: #fcf0ef;
+    background-image: url('/content/wp8.webp');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.precaution-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+.page-title {
+    text-align: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50rem;
+    padding: 5px;
+    height: 2.8rem;
+    color: #2c3e50;
+    box-shadow: 0 0 10px black;
+    background-color: rgb(207, 156, 122);
+    box-sizing: content-box;
+    border-radius: 40px;
+    color: rgb(26, 48, 17);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    animation: fadeInDown 1s ease;
+}
+
+.disease-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 20px;
+}
+
+.disease-card {
+    background: rgb(228, 199, 199);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 400px;
+    position: relative;
+    perspective: 1000px;
+}
+
+.disease-card:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card-front {
+    transform: rotateY(0deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background: #2c3e50;
+    color: rgb(255, 222, 222);
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.disease-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.disease-title {
+    color: #2c3e50;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.prevention-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.prevention-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    animation: slideIn 0.5s ease forwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .disease-card {
+        height: 350px;
+    }
+    
+    .disease-image {
+        height: 200px;}
+}
+</style>
+<script>
+    
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const cards = document.querySelectorAll('.disease-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            card.style.transform = card.style.transform.includes('rotateY(180deg)') ? 
+                'rotateY(0deg)' : 
+                'rotateY(180deg)';
+        });
+    });
+
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    cards.forEach(card => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+    });
+});
+</script>

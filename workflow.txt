@@ -88,26 +88,32 @@ APIs & External Services
 
 
 
-1st setup for the welcome page:
 /skin-analyzer
 │── /public
 │    ├── /css
-│    │    ├── styles.css
-│    │    ├── login.css
-│    │    ├── register.css
+│    │    ├── styles.css           <-- General styles
+│    │    ├── login.css            <-- Login page styles
+│    │    ├── register.css         <-- Registration page styles
+│    │    ├── home.css             <-- Home page styles
+│    │    ├── onlineCure.css       <-- Home page styles
 │    ├── /images
+│        ├── placeholder.jpg       <-- Example placeholder image
 │── /views
-│    ├── welcome.ejs  <-- UI for the Welcome Page
-│    ├── register.ejs  <-- UI for Registration Form
-│    ├── login.ejs  <-- UI for Login Form
-│    ├── home.ejs  <-- UI for Login Form
+│    ├── welcome.ejs               <-- UI for the Welcome Page
+│    ├── register.ejs              <-- UI for Registration Form
+│    ├── login.ejs                 <-- UI for Login Form
+│    ├── home.ejs                  <-- UI for Home Page after Login
+│    ├── onlineCure.ejs            <-- UI for Skin Analysis Form
+│    ├── analysisResult.ejs        <-- UI to Display Analysis Results
 │── /routes
-│    ├── authRoutes.js <-- Handles Authentication
+│    ├── authRoutes.js             <-- Handles Authentication
+│    ├── onlineCureRoutes.js       <-- Handles Skin Analysis Form Submission
 │── /models
-│    ├── User.js  <-- MongoDB User Schema
-│── /config
-│    ├── awsConfig.js <-- AWS Cognito Config
-│── server.js  <-- Main Server File
-│── package.json
-│── .env
-│── .gitignore
+│    ├── User.js                   <-- MongoDB User Schema
+│    ├── Analysis.js               <-- MongoDB Schema for Storing Skin Analysis Results
+│── /utils
+│    ├── aiAnalyzer.js             <-- AI Skin Analysis Logic (Using TensorFlow or OpenCV)
+│── server.js                      <-- Main Server File
+│── package.json                   <-- Project Dependencies
+│── .env                           <-- Environment Variables
+│── .gitignore                     <-- Git Ignore Configurations

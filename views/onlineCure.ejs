@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Skin Analysis</title>
+    <link rel="stylesheet" href="/public/css/onlineCure.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Skin Analysis</h1>
+        <form action="/online-cure" method="POST" enctype="multipart/form-data">
+            <input type="file" name="skinImage" accept="image/*" required>
+            <input type="text" name="symptoms" placeholder="Enter your symptoms (e.g., irritation, rash, etc.)" required>
+            <button type="submit">Analyze</button>
+        </form>
+    </div>
+
+</body>
+</html>

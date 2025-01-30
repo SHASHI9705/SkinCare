@@ -10,6 +10,9 @@ body {
     background: linear-gradient(135deg, #f0f4f7, #a1c4fd);
     display: flex;
     flex-direction: column;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('/content/wp6.jpg') ;
     align-items: center;
     justify-content: flex-start;
     height: 100vh;
@@ -30,11 +33,12 @@ header {
 }
 
 h1 {
-    font-size: 3rem;
-    color: #007bff;
+    font-size: 5rem;
+    color: #172c11;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     letter-spacing: 2px;
     animation: bounceIn 2s ease;
+    margin-bottom: 5rem;
 }
 
 @keyframes bounceIn {
@@ -45,19 +49,18 @@ h1 {
 
 /* Navbar Style */
 nav {
-    background-color: #333;
+    background-color: #333333c0;
     width: 100%;
     padding: 15px 0;
     position: fixed;
     top: 0;
-    left: 0;
     z-index: 100;
 }
 
 nav ul {
     list-style-type: none;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     margin-left: 30px;
 }
@@ -94,21 +97,22 @@ nav ul li a:hover {
 }
 
 .card {
-    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    background: linear-gradient(135deg, #19521e, #8cf680);
     color: white;
     width: 30%;
     padding: 30px;
     text-align: center;
-    border-radius: 15px;
+    border-radius: 35px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.3s ease;
     animation: cardReveal 1.5s ease-in-out;
+    cursor: pointer;
 }
 
 .card:hover {
     transform: translateY(-10px) rotate(5deg);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(135deg, #ff6347, #ff7f50);
+    background: linear-gradient(135deg, #166930, #0ea434);
 }
 
 @keyframes cardReveal {
@@ -120,6 +124,7 @@ nav ul li a:hover {
     font-size: 1.8rem;
     margin-bottom: 15px;
     animation: slideIn 1s ease-out;
+    color: #0d2f15;
 }
 
 @keyframes slideIn {
@@ -129,9 +134,10 @@ nav ul li a:hover {
 
 .card p {
     font-size: 1.2rem;
-    color: #f0f0f0;
+    color: #300824;
     margin-top: 10px;
     animation: fadeInText 2s ease-in-out;
+    font-style: italic;
 }
 
 @keyframes fadeInText {

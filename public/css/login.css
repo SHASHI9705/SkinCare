@@ -8,6 +8,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(135deg, rgba(255, 212, 0, 0.8), rgba(0, 123, 255, 0.8)), url('your-background-image.jpg') no-repeat center center fixed;
     background-size: cover;
+    background-image: url('/content/wp5.jpg');
     height: 100vh;
     display: flex;
     justify-content: center;
