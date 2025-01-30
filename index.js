@@ -41,9 +41,9 @@ const User = require('./models/User');
 // Online Cure Route - Show form for uploading image and symptoms
 app.get('/online-cure', (req, res) => {
     if (!req.session.user) {
-        return res.redirect('/auth/login');
+        return res.redirect('http://skin.test.woza.work/');
     }
-    res.redirect('/onlineCure');
+    res.render('home');
 });
 
 // Handle image upload and symptom submission
