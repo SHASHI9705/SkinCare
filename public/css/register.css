@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, rgba(255, 212, 0, 0.8), rgba(0, 123, 255, 0.8)), url('your-background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.register-container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 600px; /* Makes the form fit 3/4th of the page */
+    text-align: center;
+    animation: fadeIn 1.5s ease-out;
+}
+
+h1 {
+    font-size: 1.8rem; /* Smaller heading */
+    margin-bottom: 15px;
+    color: #fff;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.6), 0 1px 5px rgba(0, 0, 0, 0.4);
+    animation: fadeInUp 2s ease-out;
+}
+
+.input-group {
+    margin-bottom: 12px; /* Reduced space between fields */
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 1rem; /* Smaller label size */
+    color: #fff;
+    margin-bottom: 3px;
+    display: block;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px; /* Reduced padding to shorten the input field */
+    font-size: 1rem; /* Slightly smaller text size */
+    border-radius: 6px; /* Slightly smaller border radius */
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.7);
+}
+
+.register-btn {
+    width: 100%;
+    padding: 10px; /* Reduced padding to make the button smaller */
+    background-color: #007bff;
+    color: white;
+    font-size: 1.2rem; /* Smaller font size for the button */
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.register-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-5px);
+}
+
+.register-btn:active {
+    transform: translateY(0);
+}
+
+p {
+    font-size: 1rem; /* Smaller font size for the paragraph */
+    margin-top: 15px;
+    color: #f8f9fa;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+p a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
