@@ -33,7 +33,7 @@ router.post('/register', async (req, res) => {
         });
 
         await newUser.save();
-        res.redirect('/auth/login');
+        res.render('home');
     } catch (err) {
         console.error(err);
         res.status(500).send("Error registering user.");
@@ -54,7 +54,7 @@ router.post('/login', async (req, res) => {
 
         res.cookie('authToken', token, { httpOnly: true });
 
-        res.redirect('/dashboard');
+        res.render('home');
     } catch (err) {
         console.error(err);
         res.status(500).send("Login Error.");

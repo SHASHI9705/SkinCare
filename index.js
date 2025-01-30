@@ -19,6 +19,11 @@ app.get('/', (req, res) => {
     res.render('welcome');
 });
 
+app.get('/myhome', (req, res) => {
+    res.render('home');
+});
+
+
 app.use('/auth', authRoutes);
 
 app.listen(3000, () => console.log("Server running on port 3000"));

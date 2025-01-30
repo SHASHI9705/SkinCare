@@ -93,11 +93,14 @@ APIs & External Services
 │── /public
 │    ├── /css
 │    │    ├── styles.css
+│    │    ├── login.css
+│    │    ├── register.css
 │    ├── /images
 │── /views
 │    ├── welcome.ejs  <-- UI for the Welcome Page
 │    ├── register.ejs  <-- UI for Registration Form
 │    ├── login.ejs  <-- UI for Login Form
+│    ├── home.ejs  <-- UI for Login Form
 │── /routes
 │    ├── authRoutes.js <-- Handles Authentication
 │── /models
@@ -107,3 +110,4 @@ APIs & External Services
 │── server.js  <-- Main Server File
 │── package.json
 │── .env
+│── .gitignore
