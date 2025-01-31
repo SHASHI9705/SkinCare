@@ -5,14 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedBook - Find & Book Doctors</title>
 </head>
+<body>
+    <header class="header">
+        <h1>Lovely-Skins</h1>
+        <p>Find and book appointments with nearby doctors</p>
+    </header>
+
+    <section class="search-section">
+        <div class="search-controls">
+            <input type="text" id="location" placeholder="Enter your location or use current location">
+            <select id="specialty">
+                <option value="dermatologist">Dermatologist</option>
+                <option value="general practitioner">General Practitioner</option>
+                <option value="pediatrician">Pediatrician</option>
+            </select>
+            <button onclick="findDoctors()"><i class="fas fa-search"></i> Search</button>
+        </div>
+    </section>
+
+    <div class="loader" id="loading" style="display: none;"></div>
+    <div class="results-grid" id="results"></div>
+
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <h2>Book Appointment</h2>
+            <form id="bookingForm">
+                <input type="date" id="appointmentDate" required>
+                <input type="time" id="appointmentTime" required>
+                <input type="text" id="patientName" placeholder="Your Name" required>
+                <input type="email" id="patientEmail" placeholder="Your Email" required>
+                <button type="submit">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+    
 <style>
     /* 🎨 Color Variables */
 :root {
-    --primary: #0a1721;
-    --secondary: #2b6293;
+    --primary: #2A5C82;
+    --secondary: #68b4f7;
     --accent: #FF6B6B;
     --light: #F8F9FA;
-    --dark: #1d2731;
+    --dark: #2C3E50;
     --shadow-light: rgba(0, 0, 0, 0.1);
     --shadow-dark: rgba(0, 0, 0, 0.3);
 }
@@ -108,10 +145,10 @@ button:hover {
 
 /* 👨‍⚕️ Doctor Card */
 .doctor-card {
-    background: white;
+    background: rgb(243, 179, 179);
     border-radius: 10px;
     padding: 1.5rem;
-    box-shadow: 0 3px 10px var(--shadow-light);
+    box-shadow: 0 3px 10px blueviolet;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     animation: fadeIn 0.7s ease-in-out;
@@ -226,41 +263,7 @@ button:hover {
 }
 
 </style>
-<body>
-    <header class="header">
-        <h1>Lovely-Skins</h1>
-        <p>Find and book appointments with nearby doctors</p>
-    </header>
 
-    <section class="search-section">
-        <div class="search-controls">
-            <input type="text" id="location" placeholder="Enter your location or use current location">
-            <select id="specialty">
-                <option value="dermatologist">Dermatologist</option>
-                <option value="general practitioner">General Practitioner</option>
-                <option value="pediatrician">Pediatrician</option>
-            </select>
-            <button onclick="findDoctors()"><i class="fas fa-search"></i> Search</button>
-        </div>
-    </section>
-
-    <div class="loader" id="loading" style="display: none;"></div>
-    <div class="results-grid" id="results"></div>
-
-    <div class="modal" id="bookingModal">
-        <div class="modal-content">
-            <h2>Book Appointment</h2>
-            <form id="bookingForm">
-                <input type="date" id="appointmentDate" required>
-                <input type="time" id="appointmentTime" required>
-                <input type="text" id="patientName" placeholder="Your Name" required>
-                <input type="email" id="patientEmail" placeholder="Your Email" required>
-                <button type="submit">Confirm Booking</button>
-            </form>
-        </div>
-    </div>
-</body>
-</html>
 <script>
     const API_KEY = 'AIzaSyBEM7Ri4qcnRYg-xyExxRf7eyOipMpEcTU'; // Replace with your actual Google API key
 let currentLocation = null;
@@ -272,12 +275,10 @@ async function findDoctors() {
     const specialty = document.getElementById('specialty').value;
     const locationInput = document.getElementById('location').value;
 
-    // Show loading spinner
     document.getElementById('loading').style.display = 'block';
     document.getElementById('results').innerHTML = '';
 
     try {
-        // Get user's current location if no input is given
         if (navigator.geolocation && !locationInput) {
             const position = await new Promise((resolve, reject) => {
                 navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -291,29 +292,36 @@ async function findDoctors() {
 
         console.log("🔹 API Request URL:", apiUrl);
 
-       
         const response = await fetch(apiUrl);
         const data = await response.json();
 
-        console.log("🔹 API Response:", data);
-
-       
         if (data.status !== "OK") {
             throw new Error(`API Error: ${data.status} - ${data.error_message}`);
         }
 
-        
         displayResults(data.results);
     } catch (error) {
         console.error("🛑 Error:", error);
-        alert(`Error finding doctors. Redirecting to another website for booking.`);
 
-        
-        window.location.href = backupAppointmentURL;
+        // Show local fallback doctors if API fails
+        const fallbackDoctors = [
+            { name: "Dr. Kumar's S-Thetics ", address: "398-L, Landmark: Near Sehgal Tent House, Jalandhar", rating: 4.5 },
+            { name: "Dr. Anu Pal Goel", address: "1, Link Road, Landmark: Near Guru Amardass chowk, Jalandhar", rating: 4.2 },
+            { name: "Dr. Tarunveer Singh Kumar", address: "Near Sehgal Tent House, Jalandhar", rating: 4.0}
+        ];
+        displayResults(fallbackDoctors);
+
+        // Alert user and offer redirect
+        setTimeout(() => {
+            if (confirm("Book an appointment, If you want we can direct you to a better site")) {
+                window.location.href = backupAppointmentURL;
+            }
+        }, 2000);
     } finally {
         document.getElementById('loading').style.display = 'none';
     }
 }
+
 
 
 function displayResults(doctors) {
