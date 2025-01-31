@@ -10,7 +10,7 @@ body {
     background: linear-gradient(135deg, #ffdde1, #ee9ca7);
     color: #333;
     text-align: center;
-    background-image: url('/content/wp7.jpg');
+    background-image: url('/content/wp68.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -26,7 +26,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.993);
     color: white;
     position: fixed;
     width: 100%;
@@ -61,9 +61,10 @@ nav ul li a:hover {
     margin-right: auto;
     border-radius: 20px;
     height: fit-content;
-    background-color: rgb(110, 103, 93);
+    background-color: rgba(54, 29, 48, 0.56);
     width: fit-content;
-    padding: 40px 40px;
+    padding: 160px 90px;
+    box-shadow: 0 0 7px black;
     margin-top: 5rem;
     color: white;
 }
@@ -71,10 +72,11 @@ nav ul li a:hover {
 .hero h1 {
     font-size: 3rem;
     text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    margin-bottom: 3rem;
 }
 
 .auth-buttons {
-    margin-top: 20px;
+    margin-top: 4rem;
 }
 
 .auth-btn {
@@ -83,7 +85,7 @@ nav ul li a:hover {
     margin: 10px;
     font-size: 1.2rem;
     color: white;
-    background: #093b22;
+    background: #2e1236f1;
     border-radius: 30px;
     text-decoration: none;
     transition: background 0.3s ease;
@@ -110,6 +112,7 @@ section {
 h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
+    margin-bottom: 3rem;
 }
 
 ul {
@@ -122,8 +125,9 @@ ul {
 footer {
     background: rgba(0, 0, 0, 1);
     color: white;
-    height: 2rem;
+    height: 1.7rem;
     padding: 20px;
+    padding-top: 5px;
     margin-top: 20px;
     position: fixed;
     width: 100%;

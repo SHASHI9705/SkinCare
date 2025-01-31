@@ -43,13 +43,15 @@ p {
 
 /* Navbar Style */
 nav {
-    background-color: #1e02208a; /* Dark blue/navy */
+    background-color: #000000; /* Dark blue/navy */
     width: fit-content;
+    box-shadow: 0 0 4px white;
     padding: 15px 0;
     position: fixed;
+    margin-top: 5px;
     top: 0;
     z-index: 100;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 nav ul {
@@ -109,7 +111,7 @@ nav ul li a:hover {
 .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-    background: #fb6cef; /* Darker green on hover */
+    background: #252444; /* Darker green on hover */
 }
 
 .card h3 {
