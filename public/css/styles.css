@@ -5,6 +5,10 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+[data-google-header],.top-bar,.logo-container,.header {
+    display: none !important;
+}
+
 
 body {
     background: linear-gradient(135deg, #ffdde1, #ee9ca7);
@@ -17,6 +21,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    top: 0px !important;
+    position: static !important;
 
 }
 
@@ -30,6 +36,7 @@ header {
     color: white;
     position: fixed;
     width: 100%;
+    z-index: 100;
     top: 0px;
 }
 
