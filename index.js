@@ -39,11 +39,15 @@ const upload = multer({
 const User = require('./models/User');
 
 // Online Cure Route - Show form for uploading image and symptoms
-app.get('/online-cure', (req, res) => {
+app.get('/onlineCure', (req, res) => {
     if (!req.session.user) {
-        return res.redirect('http://skin.test.woza.work/');
+        return res.render('onlineCure');
     }
-    res.render('home');
+    res.render('onlineCure');
+});
+
+app.get('/book', (req, res) => {
+    res.render('book');
 });
 
 // Handle image upload and symptom submission

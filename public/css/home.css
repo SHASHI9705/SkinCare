@@ -6,55 +6,50 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #f0f4f7, #a1c4fd);
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f3f4f8, #e4eaf0); /* Soft, modern gradient */
     display: flex;
-    flex-direction: column;
-    background-size: cover;
+    background-image: url('/content/wp68.jpg');
     background-repeat: no-repeat;
-    background-image: url('/content/wp6.jpg') ;
+    background-size: cover;
+    flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    height: 100vh;
-    animation: fadeIn 2s ease;
-    padding-top: 80px; /* Added padding to prevent content from being hidden under the navbar */
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+    min-height: 100vh;
+    padding-top: 100px; /* Adjusted for the fixed navbar */
+    color: #333;
 }
 
 /* Header Style */
 header {
     text-align: center;
-    margin-top: 20px;
     width: 100%;
 }
 
 h1 {
-    font-size: 5rem;
-    color: #172c11;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    letter-spacing: 2px;
-    animation: bounceIn 2s ease;
-    margin-bottom: 5rem;
+    font-size: 3.5rem;
+    color: #231436;
+    text-shadow: 2px 2px 5px rgb(86, 22, 95);
+    margin-bottom: 1rem;
+    
 }
 
-@keyframes bounceIn {
-    0% { transform: scale(0.6); opacity: 0; }
-    50% { transform: scale(1.1); opacity: 1; }
-    100% { transform: scale(1); }
+p {
+    font-size: 1.3rem;
+    color: #000000;
+    font-weight: 300;
+    
 }
 
 /* Navbar Style */
 nav {
-    background-color: #333333c0;
-    width: 100%;
+    background-color: #1e02208a; /* Dark blue/navy */
+    width: fit-content;
     padding: 15px 0;
     position: fixed;
     top: 0;
     z-index: 100;
+    border-radius: 10px;
 }
 
 nav ul {
@@ -62,13 +57,13 @@ nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 30px;
 }
 
 nav ul li {
     margin: 0 20px;
     color: white;
     font-size: 1.2rem;
+    font-weight: 500;
     transition: color 0.3s ease;
 }
 
@@ -79,11 +74,11 @@ nav ul li a {
 }
 
 nav ul li:hover {
-    color: #ff6347;
+    color: #FF6F61; /* Coral color on hover */
 }
 
 nav ul li a:hover {
-    color: #ff6347;
+    color: #FF6F61;
 }
 
 /* Main Content Section */
@@ -91,58 +86,44 @@ nav ul li a:hover {
     display: flex;
     justify-content: space-around;
     width: 80%;
-    margin-top: 40px; /* Adjusted to account for the navbar's height */
+    margin-top: 150px; /* Adjusted for navbar height */
     flex-wrap: wrap;
     gap: 30px;
+    padding-bottom: 50px;
 }
 
 .card {
-    background: linear-gradient(135deg, #19521e, #8cf680);
+    background: #20051c; /* Fresh green */
     color: white;
     width: 30%;
     padding: 30px;
     text-align: center;
-    border-radius: 35px;
+    border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.3s ease;
-    animation: cardReveal 1.5s ease-in-out;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
 .card:hover {
-    transform: translateY(-10px) rotate(5deg);
+    transform: translateY(-10px);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(135deg, #166930, #0ea434);
-}
-
-@keyframes cardReveal {
-    0% { opacity: 0; transform: scale(0.8); }
-    100% { opacity: 1; transform: scale(1); }
+    background: #fb6cef; /* Darker green on hover */
 }
 
 .card h3 {
     font-size: 1.8rem;
     margin-bottom: 15px;
-    animation: slideIn 1s ease-out;
-    color: #0d2f15;
-}
-
-@keyframes slideIn {
-    0% { transform: translateX(-50%); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
+    color: white;
+    font-weight: 600;
 }
 
 .card p {
     font-size: 1.2rem;
-    color: #300824;
+    color: #f9f9f9;
     margin-top: 10px;
-    animation: fadeInText 2s ease-in-out;
     font-style: italic;
-}
-
-@keyframes fadeInText {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
 }
 
 /* Media Queries for Responsiveness */
@@ -154,9 +135,10 @@ nav ul li a:hover {
 
     .card {
         width: 80%;
+        margin-bottom: 20px;
     }
 
     h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
 }

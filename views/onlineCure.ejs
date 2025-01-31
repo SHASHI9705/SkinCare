@@ -3,19 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Skin Analysis</title>
-    <link rel="stylesheet" href="/public/css/onlineCure.css">
+    <title>AI Dermatologist Bot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <div class="container">
-        <h1>Skin Analysis</h1>
-        <form action="/online-cure" method="POST" enctype="multipart/form-data">
-            <input type="file" name="skinImage" accept="image/*" required>
-            <input type="text" name="symptoms" placeholder="Enter your symptoms (e.g., irritation, rash, etc.)" required>
-            <button type="submit">Analyze</button>
-        </form>
-    </div>
-
+    <header>
+        <div class="logo">AI Dermatologist</div>
+    </header>
+    <main>
+        <section class="content">
+            <h1>Personalized AI Dermatologist Bot</h1>
+            <h2>Trending Skincare Routines</h2>
+            <ul>
+                <li><strong>Hydration Boost:</strong><i> Drink at least 8 glasses of water daily for glowing skin.</i></li>
+                <li><strong>Double Cleansing:</strong><i> Start with an oil-based cleanser followed by a water-based one.</i></li>
+                <li><strong>SPF Protection:</strong> <i>Apply sunscreen every day to prevent premature aging.</i></li>
+                <li><strong>Exfoliation Routine:</strong> <i>Use a gentle exfoliant 2-3 times a week for smooth skin.</li>
+                <li><strong>Nighttime Retinol:</strong> <i>Incorporate retinol for anti-aging benefits.</i></li>
+                <li><strong>Vitamin C Serum:</strong> <i>Helps brighten skin and reduce dark spots.</i></li>
+                <li><strong>Healthy Diet:</strong><i>Consume antioxidant-rich foods for improved skin texture.</i></li>
+                <li><strong>Sheet Masks:</strong> <i>Use hydrating sheet masks weekly for deep moisture.</i></li>
+                <li><strong>Avoid Touching Face:</strong><i> Prevent breakouts by reducing face touching.</i></li>
+                <li><strong>Consistent Routine:</strong> <i>Stick to a morning and night skincare routine.</i></li>
+            </ul>
+        </section>
+        <section class="sidebar">
+            <!-- Additional content for the right side can be added here -->
+            <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+            <script src="https://files.bpcontent.cloud/2025/01/31/00/20250131004409-XDSRXKE8.js"></script>
+        </section>
+    </main>
+  
 </body>
 </html>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    animation: fadeIn 1.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+header {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+main {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    gap: 20px;
+}
+
+.content {
+    width: 65%;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    animation: slideInLeft 1s ease-out;
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.sidebar {
+    width: 35%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: slideInRight 1s ease-out;
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #d63384;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #6c757d;
+}
+
+ul {
+    list-style-type: none;
+    font-size: 1.2rem;
+    text-align: left;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 15px;
+    font-weight: bold;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+ul li:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 1);
+}
+
+footer {
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+}
+
+</style>
+<script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2025/01/31/00/20250131004409-XDSRXKE8.js"></script>
