@@ -7,51 +7,54 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #f3f4f8, #e4eaf0); /* Soft, modern gradient */
+    background: linear-gradient(135deg, #1c1c1c, #2e2e2e); /* Dark theme gradient */
     display: flex;
-    background-image: url('/content/wp68.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     min-height: 100vh;
-    padding-top: 100px; /* Adjusted for the fixed navbar */
-    color: #333;
-}
-
-/* Header Style */
-header {
-    text-align: center;
-    width: 100%;
-}
-
-h1 {
-    font-size: 3.5rem;
-    color: #231436;
-    text-shadow: 2px 2px 5px rgb(86, 22, 95);
-    margin-bottom: 1rem;
-    
-}
-
-p {
-    font-size: 1.3rem;
-    color: #000000;
-    font-weight: 300;
-    
+    color: #f3f3f3;
+    padding: 20px;
 }
 
 /* Navbar Style */
 nav {
-    background-color: #000000; /* Dark blue/navy */
-    width: fit-content;
-    box-shadow: 0 0 4px white;
-    padding: 15px 0;
+    background-color: rgba(51, 51, 51, 0.7); /* Dark grey with opacity */
+    backdrop-filter: blur(10px); /* Blur effect */
+    width: 100%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+    padding: 15px 30px;
     position: fixed;
-    margin-top: 5px;
     top: 0;
     z-index: 100;
-    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+nav:hover {
+    background-color: #333; /* Dark grey */
+    backdrop-filter: none; /* Remove blur effect */
+}
+
+.company-logo {
+    display: flex;
+    align-items: center;
+}
+
+.company-logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #f3f3f3;
+    margin-right: 10px;
+}
+
+.company-logo span {
+    color: #f3f3f3;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 nav ul {
@@ -63,14 +66,14 @@ nav ul {
 
 nav ul li {
     margin: 0 20px;
-    color: white;
+    color: #f3f3f3;
     font-size: 1.2rem;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 nav ul li a {
-    color: white;
+    color: #f3f3f3;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -86,46 +89,213 @@ nav ul li a:hover {
 /* Main Content Section */
 .content-container {
     display: flex;
-    justify-content: space-around;
-    width: 80%;
-    margin-top: 150px; /* Adjusted for navbar height */
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 30px;
-    padding-bottom: 50px;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 100px;
+    margin-bottom: 100px; /* Added margin to push the rest of the content below the fold */
 }
 
 .card {
-    background: #20051c; /* Fresh green */
-    color: white;
-    width: 30%;
+    background: linear-gradient(145deg, #3a3a3a, #444444); /* Dark card gradient */
+    color: #f3f3f3;
+    width: 300px;
     padding: 30px;
     text-align: center;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, border 0.5s ease;
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    height: 400px; /* Ensure consistent height */
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: dropDown 1.5s ease forwards;
+}
+
+.card img {
+    width: 80px;
+    margin-bottom: 20px;
 }
 
 .card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) rotateX(10deg) rotateY(10deg);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-    background: #252444; /* Darker green on hover */
+    background: linear-gradient(145deg, #444444, #3a3a3a); /* Darker gradient on hover */
+    border: 2px solid #FF6F61; /* Coral color glow */
 }
 
 .card h3 {
     font-size: 1.8rem;
     margin-bottom: 15px;
-    color: white;
+    color: #f3f3f3;
     font-weight: 600;
 }
 
 .card p {
     font-size: 1.2rem;
-    color: #f9f9f9;
+    color: #b3b3b3;
     margin-top: 10px;
     font-style: italic;
+}
+
+@keyframes dropDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Why AI Dermatologist Section */
+.ai-dermatologist-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 100px auto 50px;
+    padding: 20px;
+    background: linear-gradient(145deg, #2e2e2e, #1c1c1c); /* Matching gradient */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #f3f3f3;
+}
+
+.ai-dermatologist-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #FF6F61; /* Coral color */
+    margin-bottom: 20px;
+}
+
+.ai-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.ai-feature {
+    flex: 1;
+    min-width: 220px;
+    padding: 20px;
+    background: #3a3a3a;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ai-feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.ai-feature h3 {
+    font-size: 1.5rem;
+    color: #FF6F61; /* Coral color */
+    margin-bottom: 10px;
+}
+
+.ai-feature p {
+    font-size: 1rem;
+    color: #f3f3f3;
+    margin-bottom: 0;
+}
+
+/* Frequently Asked Questions Section */
+.faq-title {
+    width: 100%;
+    max-width: 1200px;
+    margin: 100px auto 20px;
+    text-align: center;
+    font-size: 2rem;
+    color: #FF6F61; /* Coral color */
+}
+
+.faq {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 20px;
+    background: linear-gradient(145deg, #2e2e2e, #1c1c1c); /* Matching gradient */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: #f3f3f3;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.faq:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.faq h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.faq p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.faq h4 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.faq ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.faq ul li {
+    margin-bottom: 5px;
+}
+
+/* Footer Style */
+footer {
+    background-color: #333; /* Dark grey */
+    color: #f3f3f3;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 0.8rem;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+}
+
+footer ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul li {
+    margin: 0 10px;
+}
+
+footer ul li a {
+    color: #f3f3f3;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: #FF6F61; /* Coral color on hover */
+}
+
+footer p {
+    margin-left: auto;
 }
 
 /* Media Queries for Responsiveness */
@@ -140,7 +310,40 @@ nav ul li a:hover {
         margin-bottom: 20px;
     }
 
-    h1 {
-        font-size: 2.5rem;
+    .company-logo span {
+        font-size: 1.2rem;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+        font-size: 1rem;
+    }
+
+    .ai-dermatologist-section {
+        padding: 10px;
+    }
+
+    .ai-features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .faq-title {
+        font-size: 1.5rem;
+        margin: 50px auto 10px;
+    }
+
+    .faq {
+        padding: 10px;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer p {
+        margin-top: 10px;
+        margin-left: 0;
     }
 }

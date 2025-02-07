@@ -2,10 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skin Disease Prevention Guide</title>
     <link rel="stylesheet" href="precaution.css">
+    <link rel="icon" type="image/webp" href="/content/logo.jpg">
 </head>
 <body>
+    <!-- Navbar -->
+    <nav>
+        <div class="company-logo">
+            <img src="/content/logo.jpg" alt="Lovely Skins Logo">
+            <span>Lovely Skins</span>
+        </div>
+        <ul>
+            <li><a href="/myhome">Welcome</a></li>
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/marked-doctors">Marked Doctors</a></li>
+        </ul>
+    </nav>
+
     <div class="precaution-container">
         <h1 class="page-title">Skin Disease Prevention Guide</h1>
         
@@ -26,7 +42,6 @@
                 </div>
             </div>
 
-            
             <div class="disease-card">
                 <div class="card-front">
                     <img src="/content/eczema.jpeg" alt="Eczema" class="disease-image">
@@ -42,57 +57,55 @@
                     </ul>
                 </div>
             </div>
+
             <div class="disease-card">
-    <div class="card-front">
-        <img src="/content/rosacea.jpg" alt="Rosacea" class="disease-image">
-        <h2 class="disease-title">Rosacea</h2>
-    </div>
-    <div class="card-back">
-        <h3>Prevention Tips</h3>
-        <ul class="prevention-list">
-            <li>Use gentle skincare products</li>
-            <li>Avoid spicy foods and alcohol</li>
-            <li>Protect from sun exposure</li>
-            <li>Manage stress levels</li>
-        </ul>
-    </div>
-</div>
+                <div class="card-front">
+                    <img src="/content/rosacea.jpg" alt="Rosacea" class="disease-image">
+                    <h2 class="disease-title">Rosacea</h2>
+                </div>
+                <div class="card-back">
+                    <h3>Prevention Tips</h3>
+                    <ul class="prevention-list">
+                        <li>Use gentle skincare products</li>
+                        <li>Avoid spicy foods and alcohol</li>
+                        <li>Protect from sun exposure</li>
+                        <li>Manage stress levels</li>
+                    </ul>
+                </div>
+            </div>
 
-<!-- Melanoma Card -->
-<div class="disease-card">
-    <div class="card-front">
-        <img src="/content/melanoma.jpeg" alt="Melanoma" class="disease-image">
-        <h2 class="disease-title">Melanoma</h2>
-    </div>
-    <div class="card-back">
-        <h3>Prevention Tips</h3>
-        <ul class="prevention-list">
-            <li>Use SPF 30+ sunscreen daily</li>
-            <li>Avoid tanning beds</li>
-            <li>Regular skin checks</li>
-            <li>Wear protective clothing</li>
-        </ul>
-    </div>
-</div>
+            <div class="disease-card">
+                <div class="card-front">
+                    <img src="/content/melanoma.jpeg" alt="Melanoma" class="disease-image">
+                    <h2 class="disease-title">Melanoma</h2>
+                </div>
+                <div class="card-back">
+                    <h3>Prevention Tips</h3>
+                    <ul class="prevention-list">
+                        <li>Use SPF 30+ sunscreen daily</li>
+                        <li>Avoid tanning beds</li>
+                        <li>Regular skin checks</li>
+                        <li>Wear protective clothing</li>
+                    </ul>
+                </div>
+            </div>
 
-<!-- Ringworm Card -->
-<div class="disease-card">
-    <div class="card-front">
-        <img src="/content/ringworm.jpg" alt="Ringworm" class="disease-image">
-        <h2 class="disease-title">Ringworm</h2>
-    </div>
-    <div class="card-back">
-        <h3>Prevention Tips</h3>
-        <ul class="prevention-list">
-            <li>Keep skin dry and clean</li>
-            <li>Avoid sharing personal items</li>
-            <li>Wear breathable fabrics</li>
-            <li>Disinfect surfaces regularly</li>
-        </ul>
-    </div>
-</div>
+            <div class="disease-card">
+                <div class="card-front">
+                    <img src="/content/ringworm.jpg" alt="Ringworm" class="disease-image">
+                    <h2 class="disease-title">Ringworm</h2>
+                </div>
+                <div class="card-back">
+                    <h3>Prevention Tips</h3>
+                    <ul class="prevention-list">
+                        <li>Keep skin dry and clean</li>
+                        <li>Avoid sharing personal items</li>
+                        <li>Wear breathable fabrics</li>
+                        <li>Disinfect surfaces regularly</li>
+                    </ul>
+                </div>
+            </div>
 
-            <!-- Psoriasis Card -->
             <div class="disease-card">
                 <div class="card-front">
                     <img src="/content/psoriasis.jpg" alt="Psoriasis" class="disease-image">
@@ -111,182 +124,355 @@
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer>
+        <ul>
+            <li><a href="/cookie-settings">Cookie Settings</a></li>
+            <li><a href="/privacy-policy">Privacy Policy</a></li>
+            <li><a href="/cookie-policy">Cookie Policy</a></li>
+            <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
+        </ul>
+        <p>&copy; 2025 Lovely Skins. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.disease-card');
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    card.style.transform = card.style.transform.includes('rotateY(180deg)') ? 
+                        'rotateY(0deg)' : 
+                        'rotateY(180deg)';
+                });
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            cards.forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1c1c1c, #2e2e2e); /* Dark theme gradient */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            color: #f3f3f3;
+            padding: 20px;
+        }
+
+        /* Navbar Style */
+        nav {
+            background-color: rgba(51, 51, 51, 0.7); /* Dark grey with opacity */
+            backdrop-filter: blur(10px); /* Blur effect */
+            width: 100%;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+            padding: 15px 30px;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+        }
+
+        nav:hover {
+            background-color: #333; /* Dark grey */
+            backdrop-filter: none; /* Remove blur effect */
+        }
+
+        .company-logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .company-logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #f3f3f3;
+            margin-right: 10px;
+        }
+
+        .company-logo span {
+            color: #f3f3f3;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+            color: #f3f3f3;
+            font-size: 1.2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        nav ul li a {
+            color: #f3f3f3;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li:hover {
+            color: #FF6F61; /* Coral color on hover */
+        }
+
+        nav ul li a:hover {
+            color: #FF6F61;
+        }
+
+        .precaution-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+            margin-top: 100px;
+            margin-bottom: 100px; /* Added margin to push the rest of the content below the fold */
+        }
+
+        .page-title {
+            text-align: center;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50rem;
+            padding: 5px;
+            height: 2.8rem;
+            box-shadow: 0 0 10px black;
+            background-color: rgb(31, 16, 33);
+            box-sizing: content-box;
+            border-radius: 40px;
+            color: rgb(255, 255, 255);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        .disease-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 20px;
+        }
+
+        .disease-card {
+            background: linear-gradient(145deg, #3a3a3a, #444444); /* Dark card gradient */
+            color: #f3f3f3;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 400px;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .disease-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .card-front {
+            transform: rotateY(0deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            background: #2c3e50;
+            color: #f3f3f3;
+            padding: 25px;
+            overflow-y: auto;
+        }
+
+        .disease-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .disease-title {
+            color: #FF6F61; /* Coral color */
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .prevention-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .prevention-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        footer {
+            background-color: #333; /* Dark grey */
+            color: #f3f3f3;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            font-size: 0.8rem;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+        }
+
+        footer ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer ul li {
+            margin: 0 10px;
+        }
+
+        footer ul li a {
+            color: #f3f3f3;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer ul li a:hover {
+            color: #FF6F61; /* Coral color on hover */
+        }
+
+        footer p {
+            margin-left: auto;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .disease-card {
+                height: 350px;
+            }
+            
+            .disease-image {
+                height: 200px;
+            }
+
+            .precaution-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+
+            .company-logo span {
+                font-size: 1.2rem;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+                font-size: 1rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+                margin: 50px auto 10px;
+            }
+
+            .disease-grid {
+                padding: 10px;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            footer p {
+                margin-top: 10px;
+                margin-left: 0;
+            }
+        }
+    </style>
 </body>
 </html>
-<style>
-    body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: #fcf0ef;
-    background-image: url('/content/wp33.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-.precaution-container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 20px;
-}
-
-.page-title {
-    text-align: center;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50rem;
-    padding: 5px;
-    height: 2.8rem;
-    box-shadow: 0 0 10px black;
-    background-color: rgb(31, 16, 33);
-    box-sizing: content-box;
-    border-radius: 40px;
-    color: rgb(255, 255, 255);
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    animation: fadeInDown 1s ease;
-}
-
-.disease-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 20px;
-}
-
-.disease-card {
-    background-color: rgba(208, 112, 252, 0.411);
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgb(37, 29, 17);
-    cursor: pointer;
-    transform-style: preserve-3d;
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    height: 400px;
-    position: relative;
-    perspective: 1000px;
-}
-
-.disease-card:hover {
-    transform: translateY(-10px) rotateX(5deg);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-}
-
-.card-front,
-.card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 15px;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.card-front {
-    transform: rotateY(0deg);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.card-back {
-    transform: rotateY(180deg);
-    background: #2c3e50;
-    color: rgb(255, 222, 222);
-    padding: 25px;
-    overflow-y: auto;
-}
-
-.disease-image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    transition: transform 0.3s ease;
-}
-
-.disease-title {
-    color: #000000;
-    margin: 0;
-    font-size: 1.5rem;
-}
-
-.prevention-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-.prevention-list li {
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    animation: slideIn 0.5s ease forwards;
-}
-
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@media (max-width: 768px) {
-    .disease-card {
-        height: 350px;
-    }
-    
-    .disease-image {
-        height: 200px;}
-}
-</style>
-<script>
-    
-document.addEventListener('DOMContentLoaded', () => {
-    
-    const cards = document.querySelectorAll('.disease-card');
-    
-    cards.forEach(card => {
-        card.addEventListener('click', () => {
-            card.style.transform = card.style.transform.includes('rotateY(180deg)') ? 
-                'rotateY(0deg)' : 
-                'rotateY(180deg)';
-        });
-    });
-
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = 1;
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
-
-    cards.forEach(card => {
-        card.style.opacity = 0;
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
-    });
-});
-</script>

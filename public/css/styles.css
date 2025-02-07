@@ -3,141 +3,193 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
 }
-[data-google-header],.top-bar,.logo-container,.header {
-    display: none !important;
-}
-
 
 body {
-    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-    color: #333;
-    text-align: center;
-    background-image: url('/content/wp68.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    background: linear-gradient(135deg, rgba(38, 38, 38, 0.9), rgba(78, 0, 90, 0.9)); /* Darker, sleek gradient */
+    backdrop-filter: blur(10px);
+    color: #fff;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    top: 0px !important;
-    position: static !important;
-
 }
 
 /* Header */
 header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.993);
-    color: white;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.7); /* Slightly darker header */
+    backdrop-filter: blur(15px);
     position: fixed;
     width: 100%;
-    z-index: 100;
-    top: 0px;
+    z-index: 1000;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Logo Section */
 .logo {
-    font-size: 24px;
-    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between logo and text */
 }
 
-nav ul {
+.logo-img {
+    height: 50px; /* Circular logo size */
+    width: 50px;  /* Keep width and height equal to make it circular */
+    border-radius: 50%; /* Makes the logo circular */
+    border: 2px solid white; /* Thin white border around the logo */
+    object-fit: cover; /* Ensures the logo fits within the circular boundary */
+}
+
+.logo-text {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1px;
+}
+
+/* Navigation Links */
+.nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 25px;
+    margin-left: auto; /* Push the nav links to the right */
+    padding-left: 0;
 }
 
-nav ul li a {
+.nav-links li a {
     color: white;
     text-decoration: none;
     font-size: 18px;
-    transition: color 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
 }
 
-nav ul li a:hover {
+.nav-links li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 203, 203, 0.3);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.nav-links li a:hover::before {
+    transform: scaleX(1);
+}
+
+.nav-links li a:hover {
     color: #ffcbcb;
+    text-shadow: 0 0 10px rgba(255, 203, 203, 0.8);
 }
 
 /* Hero Section */
 .hero {
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     border-radius: 20px;
-    height: fit-content;
-    background-color: rgba(54, 29, 48, 0.56);
-    width: fit-content;
-    padding: 160px 90px;
-    box-shadow: 0 0 7px black;
-    margin-top: 5rem;
+    background: rgba(54, 29, 48, 0.9);
+    width: 90%;
+    max-width: 1100px;
+    padding: 130px 60px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    margin-top: 8rem;
     color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(38, 38, 38, 0.5), rgba(78, 0, 90, 0.5)); /* Darker gradient for hero */
+    z-index: -1;
+    animation: heroGlow 3s infinite alternate;
+}
+
+@keyframes heroGlow {
+    from {
+        filter: brightness(1);
+    }
+    to {
+        filter: brightness(1.2);
+    }
 }
 
 .hero h1 {
-    font-size: 3rem;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-    margin-bottom: 3rem;
+    font-size: 3.5rem;
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hero h1:hover {
+    transform: scale(1.05);
 }
 
 .auth-buttons {
-    margin-top: 4rem;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 .auth-btn {
     display: inline-block;
-    padding: 15px 30px;
-    margin: 10px;
+    padding: 15px 40px;
     font-size: 1.2rem;
     color: white;
-    background: #2e1236f1;
+    background: #7d5a86;
     border-radius: 30px;
     text-decoration: none;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .auth-btn:hover {
-    background: #0056b3;
-}
-
-/* Sections */
-section {
-    padding: 60px 20px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 20px;
-    height: fit-content;
-    background-color: rgb(110, 103, 93);
-    width: fit-content;
-    padding: 40px 40px;
-    margin-top: 5rem;
-    color: white;
-}
-
-h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    margin-bottom: 3rem;
-}
-
-ul {
-    list-style-type: none;
-    font-size: 1.2rem;
-    font-style: italic;
+    background: #512b58;
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* Footer */
 footer {
-    background: rgba(0, 0, 0, 1);
+    background: rgba(0, 0, 0, 0.9);
     color: white;
-    height: 1.7rem;
-    padding: 20px;
-    padding-top: 5px;
-    margin-top: 20px;
+    padding: 5px;
     position: fixed;
     width: 100%;
     bottom: 0;
+    text-align: center;
+    font-size: 14px;
+}
 
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }

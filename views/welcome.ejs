@@ -3,33 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lovely Skins - Your Skincare Companion</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Lovely Skins - Redefined Beauty</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/webp" href="/content/logo.jpg">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <div class="logo">Lovely Skins</div>
+        <div class="logo">
+            <img src="/content/logo.jpg" alt="Lovely Skins Logo" class="logo-img">
+            <span class="logo-text">Lovely Skins</span>
+        </div>
         <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#tips">Skincare Tips</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
     </header>
+    
+    
     <section class="hero">
-        <h1>Welcome to Lovely Skins</h1>
-        <p>Your journey to healthy, glowing skin starts here.</p>
-        <div class="auth-buttons">
-            <a href="/auth/register" class="auth-btn">Register</a>
-            <a href="/auth/login" class="auth-btn">Login</a>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>AI Meets Skincare</h1>
+            <p style="font-style: italic;">Best skincare with your personalized ai today!!.</p>
+            <div class="auth-buttons">
+                <a href="/auth/register" class="auth-btn">Register</a>
+                <a href="/auth/login" class="auth-btn">Login</a>
+            </div>
         </div>
     </section>
     
     <footer>
         <p>&copy; 2025 Lovely Skins. All rights reserved.</p>
     </footer>
+    
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+    </script>
 </body>
 </html>

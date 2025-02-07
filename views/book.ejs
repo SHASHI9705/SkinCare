@@ -1,362 +1,479 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MedBook - Find & Book Doctors</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lovely-Skins | Book Doctor Appointments</title>
+  <link rel="stylesheet" href="precaution.css">
+  <link rel="icon" type="image/webp" href="/content/logo.jpg">
 </head>
 <body>
-    <header class="header">
-        <h1>Lovely-Skins</h1>
-        <p>Find and book appointments with nearby doctors</p>
-    </header>
-
-    <section class="search-section">
-        <div class="search-controls">
-            <input type="text" id="location" placeholder="Enter your location or use current location">
-            <select id="specialty">
-                <option value="dermatologist">Dermatologist</option>
-                <option value="general practitioner">General Practitioner</option>
-                <option value="pediatrician">Pediatrician</option>
-            </select>
-            <button onclick="findDoctors()"><i class="fas fa-search"></i> Search</button>
+    <!-- Navbar -->
+    <nav>
+        <div class="company-logo">
+            <img src="/content/logo.jpg" alt="Lovely Skins Logo">
+            <span>Lovely Skins</span>
         </div>
-    </section>
+        <ul>
+            <li><a href="/myhome">Welcome</a></li>
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/marked-doctors">Marked Doctors</a></li>
+        </ul>
+    </nav>
 
-    <div class="loader" id="loading" style="display: none;"></div>
-    <div class="results-grid" id="results"></div>
+  <!-- Header -->
+  <header>
+    <h1>Lovely-Skins</h1>
+    <p>Find and Book Appointments with Nearby Doctors</p>
+  </header>
 
-    <div class="modal" id="bookingModal">
-        <div class="modal-content">
-            <h2>Book Appointment</h2>
-            <form id="bookingForm">
-                <input type="date" id="appointmentDate" required>
-                <input type="time" id="appointmentTime" required>
-                <input type="text" id="patientName" placeholder="Your Name" required>
-                <input type="email" id="patientEmail" placeholder="Your Email" required>
-                <button type="submit">Confirm Booking</button>
-            </form>
-        </div>
+  <!-- Search Section -->
+  <!-- <section class="search-section">
+    <h2>Search for Specialists Near You</h2>
+    <div class="search-controls">
+      <input type="text" id="location" placeholder="Enter your location" />
+      <button onclick="findDoctors()">Search</button>
     </div>
+  </section> -->
+
+  <!-- Map Section -->
+  <div class="container">
+    <h2>Nearby Dermatologists</h2>
+    <div id="map"></div>
+  </div>
+
+  <!-- Results Grid (for any additional listings, if needed) -->
+  <div class="results-grid" id="results"></div>
+
+  <!-- Booking Modal -->
+  <div class="modal" id="bookingModal">
+    <div class="modal-content">
+      <h2>Book Appointment</h2>
+      <form id="bookingForm">
+        <input type="date" id="appointmentDate" required>
+        <input type="time" id="appointmentTime" required>
+        <input type="text" id="patientName" placeholder="Your Name" required>
+        <input type="email" id="patientEmail" placeholder="Your Email" required>
+        <button type="submit">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <ul>
+        <li><a href="/cookie-settings">Cookie Settings</a></li>
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
+        <li><a href="/cookie-policy">Cookie Policy</a></li>
+        <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
+    </ul>
+    <p>Lovely-Skins &copy; 2025. Connecting You with Health Experts</p>
+  </footer>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+
+  <!-- Google Maps API (Replace with your valid API key) -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCm-RLJLFEWN8kcx3tXou1CAD-DoyBRcPg&libraries=places&callback=initMap"
+    async
+    defer>
+  </script>
+
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1c1c1c, #2e2e2e); /* Dark theme gradient */
+      color: #f3f3f3;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* Navbar Style */
+    nav {
+      background-color: rgba(51, 51, 51, 0.7); /* Dark grey with opacity */
+      backdrop-filter: blur(10px); /* Blur effect */
+      width: 100%;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+      padding: 15px 30px;
+      position: fixed;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+    }
+
+    nav:hover {
+      background-color: #333; /* Dark grey */
+      backdrop-filter: none; /* Remove blur effect */
+    }
+
+    .company-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .company-logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid #f3f3f3;
+      margin-right: 10px;
+    }
+
+    .company-logo span {
+      color: #f3f3f3;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    nav ul li {
+      margin: 0 20px;
+      color: #f3f3f3;
+      font-size: 1.2rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    nav ul li a {
+      color: #f3f3f3;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li:hover {
+      color: #FF6F61; /* Coral color on hover */
+    }
+
+    nav ul li a:hover {
+      color: #FF6F61;
+    }
+
+    /* Header */
+    header {
+      padding: 20px;
+      background: rgba(51, 51, 51, 0.7); /* Dark grey with opacity */
+      color: white;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      margin-top: 60px; /* Offset for fixed navbar */
+    }
+
+    /* Search Section */
+    .search-section {
+      padding: 2rem;
+      text-align: center;
+      background: #444444;
+      max-width: 800px;
+      margin: 2rem auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-controls {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin: 1rem 0;
+    }
+
+    input, select {
+      padding: 1rem;
+      border: 2px solid #2A5C82;
+      border-radius: 5px;
+      font-size: 1rem;
+      width: 40%;
+    }
+
+    button {
+      background: #060c10;
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #4a90e2;
+    }
+
+    /* Map Container */
+    .container {
+      padding: 20px;
+    }
+
+    #map {
+      height: 400px;
+      width: 100%;
+      margin: 20px auto;
+    }
+
+    /* Results Grid */
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Booking Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #444444;
+      color: #f3f3f3;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      text-align: center;
+      animation: slideDown 0.5s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Footer */
+    .footer {
+      background: rgba(51, 51, 51, 0.7); /* Dark grey with opacity */
+      color: #f3f3f3;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      font-size: 0.8rem;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+    }
+
+    .footer ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer ul li {
+      margin: 0 10px;
+    }
+
+    .footer ul li a {
+      color: #f3f3f3;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer ul li a:hover {
+      color: #FF6F61; /* Coral color on hover */
+    }
+
+    .footer p {
+      margin-left: auto;
+    }
+
+    @media (max-width: 768px) {
+      .search-controls {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container {
+        padding: 10px;
+      }
+
+      .footer {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer p {
+        margin-top: 10px;
+        margin-left: 0;
+      }
+    }
+  </style>
+
+  <script>
+    let map;
+    let service;
+    let infowindow;
+    let markers = [];
+
+    // Initialize the map using current location
+    function initMap() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const userLocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            map = new google.maps.Map(document.getElementById("map"), {
+              center: userLocation,
+              zoom: 15
+            });
+
+            new google.maps.Marker({
+              position: userLocation,
+              map: map,
+              title: "Your Location",
+              icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+            });
+
+            infowindow = new google.maps.InfoWindow();
+            service = new google.maps.places.PlacesService(map);
+
+            searchNearby(userLocation);
+          },
+          () => {
+            handleLocationError(true);
+          },
+          { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 }
+        );
+      } else {
+        handleLocationError(false);
+      }
+    }
+
+    // Search for nearby dermatologists (adjust radius or keyword if needed)
+    function searchNearby(location) {
+      clearMarkers();
+      const request = {
+        location: location,
+        radius: "10000",
+        keyword: "dermatologist"
+      };
+
+      service.nearbySearch(request, (results, status) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          results.forEach((place) => createMarker(place));
+        } else {
+          alert("No dermatologists found nearby.");
+        }
+      });
+    }
+
+    // Create a marker on the map for a given place
+    function createMarker(place) {
+      if (!place.geometry || !place.geometry.location) return;
+      const marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location,
+        title: place.name
+      });
+      markers.push(marker);
+      google.maps.event.addListener(marker, "click", () => {
+        infowindow.setContent(`<div><strong>${place.name}</strong><br>${place.vicinity}</div>`);
+        infowindow.open(map, marker);
+      });
+    }
+
+    // Remove old markers from the map
+    function clearMarkers() {
+      markers.forEach(marker => marker.setMap(null));
+      markers = [];
+    }
+
+    // Handle geolocation errors
+    function handleLocationError(browserHasGeolocation) {
+      alert("Error getting location. Please enter location manually.");
+    }
+
+    // Find doctors using the search bar input
+    function findDoctors() {
+      const locationInput = document.getElementById("location").value;
+      if (!locationInput) {
+        alert("Please enter a location.");
+        return;
+      }
+      const geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ address: locationInput }, (results, status) => {
+        if (status === "OK") {
+          const newLocation = results[0].geometry.location;
+          map.setCenter(newLocation);
+          searchNearby(newLocation);
+        } else {
+          alert("Geocode was not successful: " + status);
+        }
+      });
+    }
+
+    // Show the booking modal for a doctor (to be triggered by a button in doctor listings)
+    function showBookingModal(doctorName) {
+      document.getElementById("bookingModal").style.display = "flex";
+      document.querySelector(".modal-content h2").textContent = "Book Appointment with " + doctorName;
+    }
+
+    // Booking form submission handling
+    document.getElementById("bookingForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Booking confirmed!");
+      document.getElementById("bookingModal").style.display = "none";
+    });
+
+    // Close the booking modal when clicking outside the modal content
+    window.onclick = function(event) {
+      const modal = document.getElementById("bookingModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+  </script>
 </body>
 </html>
-
-    
-<style>
-    /* 🎨 Color Variables */
-:root {
-    --primary: #2A5C82;
-    --secondary: #68b4f7;
-    --accent: #FF6B6B;
-    --light: #F8F9FA;
-    --dark: #2C3E50;
-    --shadow-light: rgba(0, 0, 0, 0.1);
-    --shadow-dark: rgba(0, 0, 0, 0.3);
-}
-
-/* 🌍 Reset & Global Styles */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-}
-
-body {
-    background-color: var(--light);
-    color: var(--dark);
-    line-height: 1.6;
-    padding-bottom: 2rem;
-    background-image: url('docto.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-/* 🌟 Header */
-.header {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    text-align: center;
-    padding: 1.5rem;
-    box-shadow: 0 4px 10px var(--shadow-dark);
-    animation: fadeIn 1s ease-in-out;
-}
-
-/* 🔎 Search Section */
-.search-section {
-    background: white;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 4px 10px var(--shadow-light);
-    border-radius: 10px;
-    margin: 2rem auto;
-    max-width: 800px;
-    animation: slideIn 0.8s ease-in-out;
-}
-
-.search-controls {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-}
-
-input, select {
-    padding: 0.8rem;
-    border: 2px solid var(--primary);
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-input:focus, select:focus {
-    outline: none;
-    border-color: var(--secondary);
-    box-shadow: 0 0 10px var(--secondary);
-}
-
-button {
-    background: var(--secondary);
-    color: white;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 8px var(--shadow-light);
-}
-
-button:hover {
-    transform: translateY(-3px);
-    background: #4a90e2;
-    box-shadow: 0 5px 15px var(--shadow-dark);
-}
-
-/* 🏥 Doctor Results */
-.results-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* 👨‍⚕️ Doctor Card */
-.doctor-card {
-    background: rgb(243, 179, 179);
-    border-radius: 10px;
-    padding: 1.5rem;
-    box-shadow: 0 3px 10px blueviolet;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    animation: fadeIn 0.7s ease-in-out;
-}
-
-.doctor-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 5px 15px var(--shadow-dark);
-}
-
-.doctor-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-}
-
-/* ⭐ Ratings */
-.rating {
-    color: #FFD700;
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
-}
-
-/* 📅 Booking Modal */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-.modal-content {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: 0 5px 20px var(--shadow-dark);
-    text-align: center;
-    animation: slideUp 0.6s ease-in-out;
-}
-
-.modal-content input {
-    width: 100%;
-    margin-top: 10px;
-    padding: 10px;
-    border: 2px solid var(--primary);
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.modal-content input:focus {
-    border-color: var(--secondary);
-    box-shadow: 0 0 10px var(--secondary);
-}
-
-.modal-content button {
-    width: 100%;
-    margin-top: 15px;
-    background: var(--accent);
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.modal-content button:hover {
-    background: #ff4b4b;
-    box-shadow: 0 5px 15px var(--shadow-dark);
-}
-
-/* 🔄 Loading Animation */
-.loader {
-    border: 5px solid var(--light);
-    border-top: 5px solid var(--secondary);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    margin: 2rem auto;
-}
-
-/* 🎬 Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideIn {
-    from { transform: translateY(-20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-</style>
-
-<script>
-    const API_KEY = 'AIzaSyBEM7Ri4qcnRYg-xyExxRf7eyOipMpEcTU'; // Replace with your actual Google API key
-let currentLocation = null;
-
-// Backup Appointment Website (e.g., Practo)
-const backupAppointmentURL = "https://www.practo.com/";  // Change to any backup URL you prefer
-
-async function findDoctors() {
-    const specialty = document.getElementById('specialty').value;
-    const locationInput = document.getElementById('location').value;
-
-    document.getElementById('loading').style.display = 'block';
-    document.getElementById('results').innerHTML = '';
-
-    try {
-        if (navigator.geolocation && !locationInput) {
-            const position = await new Promise((resolve, reject) => {
-                navigator.geolocation.getCurrentPosition(resolve, reject);
-            });
-            currentLocation = `${position.coords.latitude},${position.coords.longitude}`;
-        } else {
-            currentLocation = locationInput;
-        }
-
-        const apiUrl = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${specialty}+near+${currentLocation}&key=${API_KEY}`;
-
-        console.log("🔹 API Request URL:", apiUrl);
-
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-
-        if (data.status !== "OK") {
-            throw new Error(`API Error: ${data.status} - ${data.error_message}`);
-        }
-
-        displayResults(data.results);
-    } catch (error) {
-        console.error("🛑 Error:", error);
-
-        // Show local fallback doctors if API fails
-        const fallbackDoctors = [
-            { name: "Dr. Kumar's S-Thetics ", address: "398-L, Landmark: Near Sehgal Tent House, Jalandhar", rating: 4.5 },
-            { name: "Dr. Anu Pal Goel", address: "1, Link Road, Landmark: Near Guru Amardass chowk, Jalandhar", rating: 4.2 },
-            { name: "Dr. Tarunveer Singh Kumar", address: "Near Sehgal Tent House, Jalandhar", rating: 4.0}
-        ];
-        displayResults(fallbackDoctors);
-
-        // Alert user and offer redirect
-        setTimeout(() => {
-            if (confirm("Book an appointment, If you want we can direct you to a better site")) {
-                window.location.href = backupAppointmentURL;
-            }
-        }, 2000);
-    } finally {
-        document.getElementById('loading').style.display = 'none';
-    }
-}
-
-
-
-function displayResults(doctors) {
-    const resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = doctors.map(doctor => `
-        <div class="doctor-card">
-            ${doctor.photos ? `<img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${doctor.photos[0].photo_reference}&key=${API_KEY}" class="doctor-image">` : ''}
-            <h3>${doctor.name}</h3>
-            <div class="rating">${doctor.rating ? '⭐'.repeat(Math.round(doctor.rating)) : 'No ratings available'}</div>
-            <p>${doctor.formatted_address}</p>
-            ${doctor.opening_hours ? `<p>${doctor.opening_hours.open_now ? '🟢 Open Now' : '🔴 Closed'}</p>` : ''}
-            <button onclick="showBookingModal('${doctor.name}')">Book Appointment</button>
-        </div>
-    `).join('');
-}
-
-
-function showBookingModal(doctorName) {
-    document.getElementById('bookingModal').style.display = 'flex';
-    document.querySelector('.modal h2').textContent = `Book Appointment with ${doctorName}`;
-}
-
-
-document.getElementById('bookingForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('✅ Booking confirmed!');
-    document.getElementById('bookingModal').style.display = 'none';
-});
-
-
-window.onclick = function(event) {
-    const modal = document.getElementById('bookingModal');
-    if (event.target === modal) {
-        modal.style.display = 'none';
-    }
-};
-
-</script>

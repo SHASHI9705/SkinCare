@@ -55,8 +55,12 @@ app.get('/logout', (req, res) => {
 });
 
 
+app.get('/about', (req, res) => {
+    res.render('about');
+});
+
 app.get('/myhome', (req, res) => {
     res.render('home');
 });
 
-app.listen(process.env.PORT, () => console.log("Server running on port 3000"));
+app.listen(process.env.PORT, () => console.log("Server running on port 4000"));
