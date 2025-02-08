@@ -1,794 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="abt.css" />
-  </head>
-  <style>
-    * {
-    font-family: Nunito, sans-serif;
-  }
-  
-  .text-blk {
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    line-height: 25px;
-    padding-top: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-  }
-  
-  .responsive-cell-block {
-    min-height: 75px;
-  }
-  
-  .responsive-container-block {
-    min-height: 75px;
-    height: fit-content;
-    width: 100%;
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 0px;
-    margin-right: auto;
-    margin-bottom: 0px;
-    margin-left: auto;
-    justify-content: flex-start;
-  }
-  
-  .responsive-container-block.bigContainer {
-    padding-top: 0px;
-    padding-right: 50px;
-    padding-bottom: 0px;
-    padding-left: 50px;
-    margin-top: 50px;
-    margin-right: 0px;
-    margin-bottom: 50px;
-    margin-left: 0px;
-  }
-  
-  .responsive-container-block.Container {
-    max-width: 1320px;
-    justify-content: space-evenly;
-    align-items: center;
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 0px;
-    padding-left: 10px;
-    position: relative;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    margin-top: 0px;
-    margin-right: auto;
-    margin-bottom: 0px;
-    margin-left: auto;
-  }
-  
-  .mainImg {
-    width: 100%;
-    height: 800px;
-    object-fit: cover;
-    opacity: 60%;
-  }
-  
-  .blueDots {
-    position: absolute;
-    top: 150px;
-    right: 15%;
-    z-index: -1;
-    left: auto;
-    width: 80%;
-    height: 500px;
-    object-fit: cover;
-  }
-  
-  .imgContainer {
-    position: relative;
-    width: 48%;
-  }
-  
-  .responsive-container-block.textSide {
-    width: 48%;
-    padding-top: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    z-index: 100;
-  }
-  
-  .text-blk.heading {
-    font-size: 36px;
-    line-height: 40px;
-    font-weight: 700;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 20px;
-    margin-left: 0px;
-  }
-  
-  .text-blk.subHeading {
-    font-size: 18px;
-    line-height: 26px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 20px;
-    margin-left: 0px;
-  }
-  
-  .cardImg {
-    width: 51px;
-    height: 51px;
-    opacity: 60%;
-  }
-  
-  .cardImgContainer {
-    padding-top: 5px;
-    padding-right: 5px;
-    padding-bottom:5px;
-    padding-left: 5px;
-    border-top-width: 1px;
-    border-right-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-    border-top-style: solid;
-    border-right-style: solid;
-    border-bottom-style: solid;
-    border-left-style: solid;
-    border-top-color: rgb(229, 229, 229);
-    border-right-color: rgb(229, 229, 229);
-    border-bottom-color: rgb(229, 229, 229);
-    border-left-color: rgb(229, 229, 229);
-    border-image-source: initial;
-    border-image-slice: initial;
-    border-image-width: initial;
-    border-image-outset: initial;
-    border-image-repeat: initial;
-    /* border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px; */
-    margin-top: 0px;
-    margin-right: 10px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-  }
-  
-  .responsive-cell-block.wk-desk-6.wk-ipadp-6.wk-tab-12.wk-mobile-12 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 10px;
-    padding-right: 15px;
-    padding-bottom: 10px;
-    padding-left: 0px;
-  }
-  
-  .text-blk.cardHeading {
-    font-size: 18px;
-    line-height: 28px;
-    font-weight: 700;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 10px;
-    margin-left: 0px;
-  }
-  
-  .text-blk.cardSubHeading {
-    color: rgb(153, 153, 153);
-    line-height: 22px;
-  }
-  
-  .explore {
-    font-size: 18px;
-    line-height: 20px;
-    font-weight: 700;
-    color: white;
-    background-color: rgb(244, 152, 146);
-    box-shadow: rgba(244, 152, 146, 0.25) 0px 10px 20px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    cursor: pointer;
-    border-top-width: 0px;
-    border-right-width: 0px;
-    border-bottom-width: 0px;
-    border-left-width: 0px;
-    border-top-style: initial;
-    border-right-style: initial;
-    border-bottom-style: initial;
-    border-left-style: initial;
-    border-top-color: initial;
-    border-right-color: initial;
-    border-bottom-color: initial;
-    border-left-color: initial;
-    border-image-source: initial;
-    border-image-slice: initial;
-    border-image-width: initial;
-    border-image-outset: initial;
-    border-image-repeat: initial;
-    padding-top: 17px;
-    padding-right: 40px;
-    padding-bottom: 17px;
-    padding-left: 40px;
-  }
-  
-  .explore:hover {
-    background-image: initial;
-    background-position-x: initial;
-    background-position-y: initial;
-    background-size: initial;
-    
-    background-attachment: initial;
-    background-origin: initial;
-    background-clip: initial;
-    background-color: rgb(244, 182, 176);
-  }
-  
-  #ixvck {
-    margin-top: 60px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-  }
-  
-  .redDots {
-    position: absolute;
-    bottom: -350px;
-    right: -100px;
-    height: 500px;
-    width: 400px;
-    object-fit: cover;
-    top: auto;
-  }
-  
-  @media (max-width: 1024px) {
-    .responsive-container-block.Container {
-      position: relative;
-      align-items: flex-start;
-      justify-content: center;
-    }
-  
-    .mainImg {
-      bottom: 0px;
-    }
-  
-    .imgContainer {
-      position: absolute;
-      bottom: 0px;
-      left: 0px;
-      height: auto;
-      width: 60%;
-    }
-  
-    .responsive-container-block.textSide {
-      margin-top: 0px;
-      margin-right: 0px;
-      margin-bottom: 0px;
-      margin-left: auto;
-      width: 70%;
-    }
-  
-    .responsive-container-block.Container {
-      flex-direction: column-reverse;
-    }
-  
-    .imgContainer {
-      position: relative;
-      width: auto;
-      margin-top: 0px;
-      margin-right: auto;
-      margin-bottom: 0px;
-      margin-left: auto;
-    }
-  
-    .responsive-container-block.textSide {
-      margin-top: 0px;
-      margin-right: 0px;
-      margin-bottom: 20px;
-      margin-left: 0px;
-      width: 100%;
-    }
-  
-    .responsive-container-block.Container {
-      flex-direction: row-reverse;
-    }
-  
-    .responsive-container-block.Container {
-      flex-direction: column-reverse;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .responsive-container-block.textSide {
-      width: 100%;
-      align-items: center;
-      flex-direction: column;
-      justify-content: center;
-    }
-  
-    .text-blk.subHeading {
-      text-align: center;
-      font-size: 17px;
-      max-width: 520px;
-    }
-  
-    .text-blk.heading {
-      text-align: center;
-    }
-  
-    .imgContainer {
-      opacity: 0.8;
-    }
-  
-    .imgContainer {
-      height: 500px;
-    }
-  
-    .imgContainer {
-      width: 30px;
-    }
-  
-    .responsive-container-block.Container {
-      flex-direction: column-reverse;
-    }
-  
-    .responsive-container-block.Container {
-      flex-wrap: nowrap;
-    }
-  
-    .responsive-container-block.textSide {
-      width: 100%;
-      margin-top: 0px;
-      margin-right: 0px;
-      margin-bottom: 20px;
-      margin-left: 0px;
-    }
-  
-    .imgContainer {
-      width: 90%;
-    }
-  
-    .imgContainer {
-      height: 450px;
-      margin-top: 5px;
-      margin-right: 33.9062px;
-      margin-bottom: 0px;
-      margin-left: 33.9062px;
-    }
-  
-    .redDots {
-      display: none;
-    }
-  
-    .explore {
-      font-size: 16px;
-      line-height: 14px;
-    }
-  }
-  
-  @media (max-width: 500px) {
-    .imgContainer {
-      position: static;
-      height: 450px;
-    }
-  
-    .mainImg {
-      height: 100%;
-    }
-  
-    .blueDots {
-      width: 100%;
-      left: 0px;
-      top: 0px;
-      bottom: auto;
-      right: auto;
-    }
-  
-    .imgContainer {
-      width: 100%;
-    }
-  
-    .responsive-container-block.textSide {
-      margin-top: 0px;
-      margin-right: 0px;
-      margin-bottom: 0px;
-      margin-left: 0px;
-    }
-  
-    .responsive-container-block.Container {
-      padding-top: 0px;
-      padding-right: 0px;
-      padding-bottom: 0px;
-      padding-left: 0px;
-      overflow-x: visible;
-      overflow-y: visible;
-    }
-  
-    .responsive-container-block.bigContainer {
-      padding-top: 10px;
-      padding-right: 20px;
-      padding-bottom: 10px;
-      padding-left: 20px;
-      padding: 0 30px 0 30px;
-    }
-  
-    .redDots {
-      display: none;
-    }
-  
-    .text-blk.subHeading {
-      font-size: 16px;
-      line-height: 23px;
-    }
-  
-    .text-blk.heading {
-      font-size: 28px;
-      line-height: 28px;
-    }
-  
-    .responsive-container-block.textSide {
-      margin-top: 40px;
-      margin-right: 0px;
-      margin-bottom: 50px;
-      margin-left: 0px;
-    }
-  
-    .imgContainer {
-      margin-top: 5px;
-      margin-right: auto;
-      margin-bottom: 0px;
-      margin-left: auto;
-      width: 100%;
-      position: relative;
-    }
-  
-    .explore {
-      padding-top: 17px;
-      padding-right: 0px;
-      padding-bottom: 17px;
-      padding-left: 0px;
-      width: 100%;
-    }
-  
-    #ixvck {
-      width: 90%;
-      margin-top: 40px;
-      margin-right: 0px;
-      margin-bottom: 0px;
-      margin-left: 0px;
-      font-size: 15px;
-    }
-  
-    .blueDots {
-      bottom: 0px;
-      width: 100%;
-      height: 80%;
-      top: 10%;
-    }
-  
-    .text-blk.cardHeading {
-      font-size: 16px;
-      margin-top: 0px;
-      margin-right: 0px;
-      margin-bottom: 8px;
-      margin-left: 0px;
-      line-height: 25px;
-    }
-  
-    .responsive-cell-block.wk-desk-6.wk-ipadp-6.wk-tab-12.wk-mobile-12 {
-      padding-top: 10px;
-      padding-right: 0px;
-      padding-bottom: 10px;
-      padding-left: 0px;
-    }
-  }
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&amp;display=swap');
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Dermatologist Bot</title>
+    <link rel="stylesheet" href="abt.css">
+    <link rel="icon" type="image/webp" href="/content/logo.jpg">
 
-*,
-*:before,
-*:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
+    <style>
+        * {
+            font-family: Nunito, sans-serif;
+            box-sizing: border-box;
+        }
 
-body {
-  margin: 0;
-}
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #1c1c1c, #2e2e2e);
+            color: #f3f3f3;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            animation: fadeIn 1.5s ease-in;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
 
-.wk-desk-1 {
-  width: 8.333333%;
-}
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
-.wk-desk-2 {
-  width: 16.666667%;
-}
+        .text-blk {
+            margin: 0;
+            line-height: 25px;
+            padding: 0;
+        }
 
-.wk-desk-3 {
-  width: 25%;
-}
+        .responsive-container-block {
+            width: 100%;
+            max-width: 1200px; /* Limit the maximum width */
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            justify-content: center;
+        }
 
-.wk-desk-4 {
-  width: 33.333333%;
-}
+        .responsive-container-block.bigContainer {
+            padding: 0 50px;
+            margin: 50px 0;
+        }
 
-.wk-desk-5 {
-  width: 41.666667%;
-}
+        .responsive-container-block.Container {
+            width: 100%;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 10px;
+            position: relative;
+            overflow: hidden;
+        }
 
-.wk-desk-6 {
-  width: 50%;
-}
+        .mainImg {
+            width: 100%;
+            height: 800px;
+            object-fit: cover;
+            opacity: 60%;
+        }
 
-.wk-desk-7 {
-  width: 58.333333%;
-}
+        .blueDots {
+            position: absolute;
+            top: 150px;
+            right: 15%;
+            z-index: -1;
+            width: 80%;
+            height: 500px;
+            object-fit: cover;
+        }
 
-.wk-desk-8 {
-  width: 66.666667%;
-}
+        .imgContainer {
+            position: relative;
+            width: 48%;
+        }
 
-.wk-desk-9 {
-  width: 75%;
-}
+        .responsive-container-block.textSide {
+            width: 48%;
+            z-index: 100;
+        }
 
-.wk-desk-10 {
-  width: 83.333333%;
-}
+        .text-blk.heading {
+            font-size: 36px;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
 
-.wk-desk-11 {
-  width: 91.666667%;
-}
+        .text-blk.subHeading {
+            font-size: 18px;
+            line-height: 26px;
+            margin-bottom: 20px;
+        }
 
-.wk-desk-12 {
-  width: 100%;
-}
+        .cardImg {
+            width: 51px;
+            height: 51px;
+            opacity: 60%;
+        }
 
-@media (max-width: 1024px) {
-  .wk-ipadp-1 {
-    width: 8.333333%;
-  }
+        .cardImgContainer {
+            padding: 5px;
+            border: 1px solid rgb(229, 229, 229);
+            margin-right: 10px;
+        }
 
-  .wk-ipadp-2 {
-    width: 16.666667%;
-  }
+        .responsive-cell-block.wk-desk-6.wk-ipadp-6.wk-tab-12.wk-mobile-12 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 15px;
+        }
 
-  .wk-ipadp-3 {
-    width: 25%;
-  }
+        .text-blk.cardHeading {
+            font-size: 18px;
+            line-height: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
 
-  .wk-ipadp-4 {
-    width: 33.333333%;
-  }
+        .text-blk.cardSubHeading {
+            color: rgb(153, 153, 153);
+            line-height: 22px;
+        }
 
-  .wk-ipadp-5 {
-    width: 41.666667%;
-  }
+        .explore {
+            font-size: 18px;
+            line-height: 20px;
+            font-weight: 700;
+            color: white;
+            background-color: rgb(244, 152, 146);
+            box-shadow: rgba(244, 152, 146, 0.25) 0px 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            padding: 17px 40px;
+            border: none;
+        }
 
-  .wk-ipadp-6 {
-    width: 50%;
-  }
+        .explore:hover {
+            background-color: rgb(244, 182, 176);
+        }
 
-  .wk-ipadp-7 {
-    width: 58.333333%;
-  }
+        #ixvck {
+            margin-top: 60px;
+            font-size: 15px;
+        }
 
-  .wk-ipadp-8 {
-    width: 66.666667%;
-  }
+        .redDots {
+            position: absolute;
+            bottom: -350px;
+            right: -100px;
+            height: 500px;
+            width: 400px;
+            object-fit: cover;
+        }
 
-  .wk-ipadp-9 {
-    width: 75%;
-  }
+        @media (max-width: 1024px) {
+            .responsive-container-block.Container {
+                align-items: flex-start;
+                justify-content: center;
+            }
 
-  .wk-ipadp-10 {
-    width: 83.333333%;
-  }
+            .imgContainer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 60%;
+                height: auto;
+            }
 
-  .wk-ipadp-11 {
-    width: 91.666667%;
-  }
+            .responsive-container-block.textSide {
+                width: 70%;
+            }
 
-  .wk-ipadp-12 {
-    width: 100%;
-  }
-}
+            .responsive-container-block.Container {
+                flex-direction: column-reverse;
+            }
 
-@media (max-width: 768px) {
-  .wk-tab-1 {
-    width: 8.333333%;
-  }
+            .imgContainer {
+                width: auto;
+                margin: 0 auto;
+            }
 
-  .wk-tab-2 {
-    width: 16.666667%;
-  }
+            .responsive-container-block.textSide {
+                width: 100%;
+            }
+        }
 
-  .wk-tab-3 {
-    width: 25%;
-  }
+        @media (max-width: 768px) {
+            .responsive-container-block.textSide {
+                width: 100%;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+            }
 
-  .wk-tab-4 {
-    width: 33.333333%;
-  }
+            .text-blk.subHeading {
+                text-align: center;
+                font-size: 17px;
+                max-width: 520px;
+            }
 
-  .wk-tab-5 {
-    width: 41.666667%;
-  }
+            .text-blk.heading {
+                text-align: center;
+            }
 
-  .wk-tab-6 {
-    width: 50%;
-  }
+            .imgContainer {
+                opacity: 0.8;
+                height: 500px;
+                width: 90%;
+            }
 
-  .wk-tab-7 {
-    width: 58.333333%;
-  }
+            .explore {
+                font-size: 16px;
+                line-height: 14px;
+            }
+        }
 
-  .wk-tab-8 {
-    width: 66.666667%;
-  }
+        @media (max-width: 500px) {
+            .imgContainer {
+                position: static;
+                height: 450px;
+                width: 100%;
+            }
 
-  .wk-tab-9 {
-    width: 75%;
-  }
+            .mainImg {
+                height: 100%;
+            }
 
-  .wk-tab-10 {
-    width: 83.333333%;
-  }
+            .blueDots {
+                width: 100%;
+                left: 0;
+                top: 0;
+            }
 
-  .wk-tab-11 {
-    width: 91.666667%;
-  }
+            .responsive-container-block.textSide {
+                width: 100%;
+                margin-bottom: 20px;
+            }
 
-  .wk-tab-12 {
-    width: 100%;
-  }
-}
+            .responsive-container-block.bigContainer {
+                padding: 10px 20px;
+            }
 
-@media (max-width: 500px) {
-  .wk-mobile-1 {
-    width: 8.333333%;
-  }
+            .redDots {
+                display: none;
+            }
 
-  .wk-mobile-2 {
-    width: 16.666667%;
-  }
+            .text-blk.subHeading {
+                font-size: 16px;
+                line-height: 23px;
+            }
 
-  .wk-mobile-3 {
-    width: 25%;
-  }
+            .text-blk.heading {
+                font-size: 28px;
+                line-height: 28px;
+            }
 
-  .wk-mobile-4 {
-    width: 33.333333%;
-  }
+            .explore {
+                padding: 17px 0;
+                width: 100%;
+            }
 
-  .wk-mobile-5 {
-    width: 41.666667%;
-  }
-
-  .wk-mobile-6 {
-    width: 50%;
-  }
-
-  .wk-mobile-7 {
-    width: 58.333333%;
-  }
-
-  .wk-mobile-8 {
-    width: 66.666667%;
-  }
-
-  .wk-mobile-9 {
-    width: 75%;
-  }
-
-  .wk-mobile-10 {
-    width: 83.333333%;
-  }
-
-  .wk-mobile-11 {
-    width: 91.666667%;
-  }
-
-  .wk-mobile-12 {
-    width: 100%;
-  }
-}
-  </style>
-  <body>
+            #ixvck {
+                width: 90%;
+                margin-top: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
     <div class="responsive-container-block bigContainer">
-      <div class="responsive-container-block Container">
-        <div class="imgContainer">
-          <img
-            class="blueDots"
-            src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/aw3.svg"
-          />
-          <img class="mainImg" src="/content/log_img.jpg" />
+        <div class="responsive-container-block Container">
+            <div class="imgContainer">
+                <img class="blueDots" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/aw3.svg">
+                <img class="mainImg" src="/content/log_img.jpg">
+            </div>
+            <div class="responsive-container-block textSide">
+                <p class="text-blk heading">About Us</p>
+                <p class="text-blk subHeading">
+                    At Lovely-Skins, we believe that everyone deserves access to expert healthcare for their skin. Our platform connects users directly to certified dermatologists for timely consultations. We harness the power of artificial intelligence to simplify appointment booking and enhance the patient experience.
+                </p>
+                <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+                    <div class="cardImgContainer">
+                        <img class="cardImg" src="/content/_con.jpg">
+                    </div>
+                    <div class="cardText">
+                        <p class="text-blk cardHeading">OUR VISION</p>
+                        <p class="text-blk cardSubHeading">
+                            Revolutionizing skin healthcare by leveraging technology to connect people with quality medical care from the comfort of their homes.
+                        </p>
+                    </div>
+                </div>
+                <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+                    <div class="cardImgContainer">
+                        <img class="cardImg" src="/content/mis.jpg">
+                    </div>
+                    <div class="cardText">
+                        <p class="text-blk cardHeading">OUR MISSION</p>
+                        <p class="text-blk cardSubHeading">
+                            To provide an easy-to-use platform where users can access trusted skin healthcare professionals and receive personalized treatment plans with minimal effort.
+                        </p>
+                    </div>
+                </div>
+                <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+                    <div class="cardImgContainer">
+                        <img class="cardImg" src="/content/ease.jpg">
+                    </div>
+                    <div class="cardText">
+                        <p class="text-blk cardHeading">EASE OF USE</p>
+                        <p class="text-blk cardSubHeading">
+                            Using Lovely-skin is extremely easy. <br>Just capture a clear photo of your skin with good lighting and let the tool work its magic. <br>
+                            It examines key areas providing valuable data for a precise analysis.
+                        </p>
+                    </div>
+                </div>
+                <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+                    <div class="cardImgContainer">
+                        <img class="cardImg" src="/content/priv.jpg">
+                    </div>
+                    <div class="cardText">
+                        <p class="text-blk cardHeading">PRIVACY PRACTICE</p>
+                        <p class="text-blk cardSubHeading">
+                            At Lovely-Skins, we prioritize your privacy. Your personal information and medical data are securely encrypted and never shared without your explicit consent, ensuring a safe and confidential experience.
+                        </p>
+                    </div>
+                </div>
+                <a href="/myhome">
+                    <button class="explore">Explore our Services</button>
+                </a>
+            </div>
         </div>
-        <div class="responsive-container-block textSide">
-          <p class="text-blk heading">About Us</p>
-          <p class="text-blk subHeading">
-            At Lovely-Skins, we believe that everyone deserves access to expert
-            healthcare for their skin. Our platform connects users directly to
-            certified dermatologists for timely consultations. We harness the
-            power of artificial intelligence to simplify appointment booking and
-            enhance the patient experience.
-          </p>
-          <div
-            class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12"
-          >
-            <div class="cardImgContainer">
-              <img class="cardImg" src="/content/_con.jpg" />
-            </div>
-            <div class="cardText">
-              <p class="text-blk cardHeading">OUR VISION</p>
-              <p class="text-blk cardSubHeading">
-                Revolutionizing skin healthcare by leveraging technology to
-                connect people with quality medical care from the comfort of
-                their homes.
-              </p>
-            </div>
-          </div>
-          <div
-            class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
-            <div class="cardImgContainer">
-              <img class="cardImg" src="/content/mis.jpg" />
-            </div>
-            <div class="cardText">
-              <p class="text-blk cardHeading">OUR MISSION</p>
-              <p class="text-blk cardSubHeading">
-                To provide an easy-to-use platform where users can access
-                trusted skin healthcare professionals and receive personalized
-                treatment plans with minimal effort.
-              </p>
-            </div>
-          </div>
-          <div
-            class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12"
-          >
-            <div class="cardImgContainer">
-              <img class="cardImg" src="/content/ease.jpg" />
-            </div>
-            <div class="cardText">
-              <p class="text-blk cardHeading">EASE OF USE</p>
-              <p class="text-blk cardSubHeading">
-                Using Lovely-skin is extremely easy. <br />Just capture a clear
-                photo of your skin with good lighting and let the tool work its
-                magic. <br />
-                It examines key areas providing valuable data for a precise
-                analysis.
-              </p>
-            </div>
-          </div>
-          <div
-            class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12"
-          >
-            <div class="cardImgContainer">
-              <img class="cardImg" src="/content/priv.jpg" />
-            </div>
-            <div class="cardText">
-              <p class="text-blk cardHeading">PRIVACY PRACTICE</p>
-              <p class="text-blk cardSubHeading">
-                At Lovely-Skins, we prioritize your privacy. Your personal
-                information and medical data are securely encrypted and never
-                shared without your explicit consent, ensuring a safe and
-                confidential experience.
-              </p>
-            </div>
-          </div>
-          <a>
-            <button class="explore">Explore our Services</button>
-          </a>
-        </div>
-      </div>
     </div>
-  </body>
+</body>
 </html>
