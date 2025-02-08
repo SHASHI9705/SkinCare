@@ -22,8 +22,6 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
     .then(() => console.log("MongoDB Connected"))
     .catch(err => console.log(err));
 
-
-
 const User = require('./models/User');
 
 app.get('/onlineCure', (req, res) => {
@@ -37,11 +35,12 @@ app.get('/book', (req, res) => {
     res.render('book');
 });
 
-
-
 app.use('/auth', authRoutes);
 
 app.get('/', (req, res) => {
+    if (req.session.user) {
+        return res.redirect('/myhome');
+    }
     res.render('welcome');
 });
 
@@ -50,17 +49,28 @@ app.get('/preventionGuide', (req, res) => {
 });
 
 app.get('/logout', (req, res) => {
-    res.clearCookie('authToken');
-    res.redirect('/auth/login');
+    req.session.destroy((err) => {
+        if (err) {
+            return console.log(err);
+        }
+        res.clearCookie('authToken');
+        res.redirect('/auth/login');
+    });
 });
-
 
 app.get('/about', (req, res) => {
     res.render('about');
 });
 
 app.get('/myhome', (req, res) => {
-    res.render('home');
+    if (req.session.user) {
+        console.log('User is logged in:', req.session.user);
+        return res.render('home');
+    }
+    console.log('User is not logged in');
+    res.render('login');
 });
 
-app.listen(process.env.PORT, () => console.log("Server running on port 4000"));
+// Start the server
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
