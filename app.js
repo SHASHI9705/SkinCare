@@ -65,7 +65,7 @@ app.get('/about', (req, res) => {
 app.get('/myhome', (req, res) => {
     if (req.session.user) {
         console.log('User is logged in:', req.session.user);
-        return res.render('home');
+        return res.render('home', { user: req.session.user });
     }
     console.log('User is not logged in');
     res.render('login');

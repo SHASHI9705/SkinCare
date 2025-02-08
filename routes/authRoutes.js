@@ -51,6 +51,7 @@ router.post('/register', [
             (err, token) => {
                 if (err) throw err;
                 req.session.user = user;
+                res.redirect('/myhome')
                 res.json({ token });
             }
         );
