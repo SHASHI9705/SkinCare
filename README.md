@@ -1,2 +1,8 @@
-It is AI based web project which solves skin problems like acne,pimples,etc.
-![Screenshot 2025-02-03 000348](https://github.com/user-attachments/assets/29911ea3-7eac-4317-b312-9d6bd8a0ef4c)
+It is AI based web project which solve the problem of personalized dermatologist for free.
+You can get suggestions for cure of the skin problem you are facing .
+The user can also book apponitment with nearby doctors for their treatment.
+
+
+![Screenshot 2025-02-09 141625](https://github.com/user-attachments/assets/aa7e90e6-fa3b-4615-8984-c67af8a75d0a)
+
+
